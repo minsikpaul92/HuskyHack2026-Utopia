@@ -29,3 +29,7 @@
 CLAUDE.md
 /game/.claude/
 /game/libs/
+
+# macOS system files
+.DS_Store
+**/.DS_Store
