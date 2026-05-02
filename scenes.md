@@ -26,7 +26,7 @@
 **Characters:** Player, Lisa (phone)
 
 ---
-
+SFX: S01-city-street.mp3
 [Bright morning. You walk down a busy street in your home country. Phone to ear.]
 
 **Player:** "Yeah this is more nerve-wracking than it should honestly. I really hope I get that Visa. Hopeford is like, my only hope of making it in the Tech world right now."
@@ -46,7 +46,7 @@
 **Player:** "Okay I gotta go. Wish me luck."
 
 **Lisa:** "Don't need it. Go get it!"
-
+SFX: S01-city-street end
 **→ S02**
 
 ---
@@ -80,7 +80,7 @@
 **Location:** Embassy office (continued).
 **Image:** TBD
 **Characters:** Player, Officer
-
+SFX: S02-approval-stamp.mp3 (no loop)
 ---
 
 **Officer:** [stamps paperwork] "Welcome to Hopeford."
@@ -114,9 +114,9 @@
 **Player:** "I called my mom yesterday and she cried. In a good way. I think."
 
 **Marcus:** "That's beautiful man. You earned this."
-
+SFX: S04-phone-buzz.mp3 (no loop)
 [Player's phone buzzes — Lisa, video calling.]
-
+SFX: S04-phone-buzz.mp3 (no loop)
 **Lisa:** "BESTIEEE show me the apartment again I need to live vicariously."
 
 > **Choice — converges to S05:**
@@ -137,7 +137,7 @@
 **Characters:** Player, Marcus
 
 ---
-
+SFX: S05-muffledTV.mp3
 [5 years later, you are sitting in the office break room. A TV plays in the background. Marcus stares at it. The country's new leader at a podium, gesturing forcefully.]
 
 **News Anchor:** "...sweeping new immigration enforcement measures effective immediately. The administration says—"
@@ -157,13 +157,15 @@
 > **Choice — converges to S06:**
 
 **S05A** — "You think I should be worried?" `[+0]` → S06
+keep SFX: S05-muffledTV.mp3
 
 **S05B** — "They can't just go after people with valid Visas. That's not how it works." `[+2]`
 > *Note: reveals dangerous naivety — player will be less prepared*
+keep SFX: S05-muffledTV.mp3
 
 **S05C** — "What are you doing? Like, to prepare?" `[-1, capped at 0]`
 > *Note: shows player is starting to take it seriously*
-
+keep SFX: S05-muffledTV.mp3
 **→ S06**
 
 ---
@@ -175,8 +177,10 @@
 **Characters:** Player, Lisa (video call)
 
 ---
-
+  SFX: S05-muffledTV end_fades out
 [You sit in your apartment living room. Late evening. News of disappearances and civil unrest has been circulating the news and all social platforms. Lisa is on video call from back home.]
+
+SFX: phone-beep.mp3 (no loop)
 
 **Lisa:** "[player_name] I'm just gonna say it. Come home."
 
@@ -235,6 +239,8 @@
 
 [You enter the office, getting ready for another day's work. You notice Marcus is packing up his desk.]
 
+SFX: S08-packing-sounds.mp3 (no loop)
+
 **Player:** "Wait — what's happening? Why are you packing?"
 
 **Marcus:** "Going to stay with family. Out of state. For a while."
@@ -246,6 +252,10 @@
 **Player:** "Inside where?"
 
 **Marcus:** "One of those facilities. Hours away. No phone. They cuffed a guy with full residency, man. Full. Residency."
+
+SFX: if S08-packing-sounds is not finished at this point, end by fading out
+
+  SFX: S08-zipper.mp3 (no loop)
 
 [Marcus zips his bag, stops, and looks at you.]
 
@@ -270,13 +280,13 @@
 **Characters:** Player, Voice outside
 
 ---
-
+SFX: S09-door-pounding1.mp3 (no loop)
 [Pitch black bedroom. POUNDING on the door. Player jolts awake.]
 
 **Voice (outside):** "OPEN UP. FEDERAL AGENTS."
 
 **Player:** [whispered] "Oh god. Oh god oh god oh god."
-
+SFX: S09-door-pounding1.mp3 (no loop)
 [More pounding. The door shakes in its frame.]
 
 **Voice:** "WE HAVE A WARRANT. OPEN THE DOOR NOW."
@@ -284,11 +294,15 @@
 > **Choice — branches permanently (paths do not reconverge):**
 
 **S09A** — Grab phone and call Lisa. `[+0]` → S10A
+[S09A_PHONE.png]
 
 **S09B** — Get documents from the bag first. `[+0]`
+[S09_slamming.png]
 > *Note: BLOCKED if player did not choose S06A — option is greyed out / unavailable.*
 
-**S09C** — Open the door — show them you have nothing to hide. `[+5]`
+**S09C**
+[S09_slamming.png]
+ — Open the door — show them you have nothing to hide. `[+5]`
 > *Note: Immediately leads to arrest sequence regardless of suspicion gauge.*
 
 ---
@@ -305,11 +319,11 @@
 
 **Location:** Player's bedroom.
 **Characters:** Player, Lisa (phone)
-
+[S09A_PHONE.png]
 ---
 
 [You pick up your phone and dial the first number that comes to mind.]
-
+SFX: phone-beep.mp3 (no loop)
 **Lisa:** [groggy] "...what time is it—"
 
 **Player:** "They're here. They're at my door."
@@ -328,7 +342,7 @@
 
 **Location:** Player's front door.
 **Characters:** Player, Voice outside
-
+[S09A_PHONE.png]
 ---
 
 **Voice:** "LAST WARNING. WE WILL BREAK THE DOOR."
@@ -341,7 +355,7 @@
 
 **Location:** Player's front door.
 **Characters:** Player
-
+[S12A_paper.png]
 ---
 
 **Player:** "I need to see the warrant first. Slide it under the door, please." `[-1, capped at 0]`
@@ -359,9 +373,9 @@
 ---
 
 #### Ending A — Lisa on phone · documents prepared · low suspicion 🟢
-
+[S09A_PHONE.png]
 **Voice (outside):** "Slide it under? Fine."
-
+SFX: S14A-paper-rustling.mp3 (no loop)
 [Folded paper slides under the door. You pick it up, hands shaking. Phone wedged at shoulder.]
 
 **Player:** [whispered] "Okay. It's here."
@@ -376,7 +390,11 @@
 
 **Lisa:** "I know. You've done everything right so far. Keep doing it."
 
+SFX: S14A-door-open.mp3 (no loop)
+
 [You set the phone on the entry table, still on speaker. Hand on the deadbolt. Click. The door opens.]
+
+[S14A_police.png]
 
 **Agent 1:** "Step back. Hands where I can see them."
 
@@ -400,7 +418,13 @@
 
 **Agent 1:** "I said we're done."
 
+
+SFX: S14A-door-close.mp3 (no loop)
+
 [Door clicks shut. Player slides the deadbolt. Slides down to the floor.]
+
+[S09_door.png]
+
 
 **Lisa (phone):** "Are they gone?"
 
@@ -408,20 +432,25 @@
 
 **Lisa:** "Oh thank goodness. Thank goodness."
 
+SFX: S14A-neighbours-crying.mp3 
 **Player:** "I heard them. Down the hall. The neighbors. There was a kid—"
 
 **Lisa:** "I know. You're safe."
 
 **Player:** "Am I?"
 
+SFX: S14A-neighbours-crying end. fades out
+
 [You did everything right. This time.]
 
 ---
 
 #### Ending B — Lisa on phone · documents prepared · high suspicion 🔴
+[S09A_PHONE.png]
 
 **Voice (outside):** "Slide it under? Fine."
 
+SFX: S14A-paper-rustling.mp3 (no loop)
 [Folded paper slides under the door. You pick it up, hands shaking. Phone wedged at shoulder.]
 
 **Player:** [whispered] "Okay. It's here."
@@ -436,7 +465,10 @@
 
 **Lisa:** "I know. You've done everything right so far. Keep doing it."
 
+SFX: S14A-door-open.mp3 (no loop)
 [You set the phone on the entry table, still on speaker. Hand on the deadbolt. Click. The door opens.]
+
+[S14A_police.png]
 
 **Agent 1:** "Step back. Hands visible."
 
@@ -484,6 +516,8 @@
 
 [An agent walks to the table. Picks up the phone. Looks at Lisa's contact photo. Ends the call.]
 
+[black_bg]
+
 **Agent 2:** "You won't be needing this."
 
 [Cuffs click. You are led out. Past the documents fanned across the table — open, useless, left behind. Past the balcony.]
@@ -504,9 +538,9 @@
 
 **Location:** Player's front door.
 **Characters:** Player, Voice outside
-
+[S09_slamming.png]
 ---
-
+SFX: S09-door-pounding1.mp3 (no loop)
 **Voice:** "LAST WARNING. WE WILL BREAK THE DOOR."
 
 **→ S11B**
@@ -517,7 +551,7 @@
 
 **Location:** Player's front door.
 **Characters:** Player
-
+[S09_slamming.png]
 ---
 
 **Player:** "O-okay! I'm opening it! Please don't break it down!" `[+2]`
@@ -530,10 +564,12 @@
 
 **Location:** Player's bedroom → front door.
 **Characters:** Player, Agent 1, Agent 2
-
+[S09_slamming.png]
 ---
 
 **Player:** [to yourself] "Okay okay okay—"
+SFX: S12B_backpack.mp3
+SFX: S12B_looking_for_docs.mp3 
 
 [You scramble for the bag. Knock something off the dresser. Find the documents — half of them. Where's the lease? Where's the—]
 
@@ -542,6 +578,14 @@
 **Player:** "I'M COMING — I'M COMING, PLEASE—"
 
 [You run to the door. Don't ask for a warrant. Don't check anything. Just turn the lock and pull it open.]
+
+[S12B_serious_police.png]
+
+SFX: S12B_backpack.mp3 end
+SFX: S12B_looking_for_docs.mp3 end
+
+SFX: S12B_police_chatter.mp3
+SFX: S14A-door-open.mp3 (no loop)
 
 **Agent 1:** "Down on the ground. NOW."
 
@@ -559,6 +603,8 @@
 ---
 
 #### Ending C — no Lisa · documents prepared · low suspicion 🟢
+[S12B_serious_police.png]
+SFX: S12B_police_chatter.mp3 continue
 
 [An agent takes the folder. Flips through methodically. Another walks the apartment perimeter. You keep your hands at your sides. You don't speak.]
 
@@ -568,11 +614,17 @@
 
 [The agent holds the look. You hold it back. Don't fill the silence. Don't apologize. Don't explain.]
 
+[S14A_police.png]
+
 **Agent 1:** [hands back the folder] "Have a good night."
 
 **Agent 2:** "That's it?"
 
 **Agent 1:** "That's it."
+
+
+SFX: S12B_police_chatter.mp3 end
+SFX: S14A-door-close.mp3 (no loop)
 
 [They leave. You close the door. Lock it. Stand there for a long time.]
 
@@ -587,6 +639,8 @@
 ---
 
 #### Ending D — no Lisa · documents prepared · high suspicion 🔴
+[S14B_police_documents.png]
+SFX: S12B_police_chatter.mp3 continue
 
 **Agent 1:** "GROUND. NOW."
 
@@ -610,6 +664,9 @@
 
 **Agent 1:** "Walk."
 
+SFX: S12B_police_chatter.mp3 end
+SFX: S14B_handcuff.mp3 (no loop)
+[black_bg]
 [Cuffs. Cold. Final.]
 
 [As you're led out, you pass the kitchen. Phone on the counter, dark. Lisa's name not on the screen. Nobody knows. Nobody knows yet. Past the balcony — the one you cried about to your mom. Past the fridge with the photos. Past Marcus's empty apartment two doors down. He saw this coming. He told you.]
@@ -627,18 +684,22 @@
 ---
 
 #### S10C — Ending E (opened door immediately) 🔴
-
+[S09_slamming.png]
 > *Note: Triggered regardless of suspicion gauge — choosing S09C bypasses all gauge checks.*
 
 [The pounding has barely registered. You, half-asleep, fumble to the door. Not thinking. Not grabbing your phone. Not asking for a warrant. Just turn the deadbolt because someone is at the door and someone at the door means open it.]
 
 [The door swings open. Three agents flood in before you can even step back.]
 
+[S14B_police_documents]
+
 **Agent 1:** "ON THE GROUND."
 
 **Player:** "Wait — what — I—"
 
 **Agent 1:** "GROUND."
+
+[black_bg]
 
 [Before you can process what is happening, you're on the ground. Knee in your back. Hands wrenched behind. The apartment fills with flashlight beams, voices, radios.]
 

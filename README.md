@@ -1,4 +1,4 @@
-# [Game Title TBD]
+# Utopia
 
 > Built for **HuskyHack 2026** — a 12-hour hackathon at George Brown College, supported by MLH.
 > Theme: **Storytelling**
