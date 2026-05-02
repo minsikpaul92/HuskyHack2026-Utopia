@@ -41,6 +41,8 @@ image bg_s09          = "images/S09_bg.png"
 image bg_s14a_police  = "images/S14A_police.png"
 image bg_s14b_docs    = "images/S14B_police_documents.png"
 image bg_black        = Solid("#000000")
+image bg_title        = "images/title.png"
+image bg_disclaimer   = "images/disclaimer.png"
 
 # ── Screens ──────────────────────────────────────
 
@@ -64,21 +66,6 @@ screen quit_button():
         padding (10, 5)
         textbutton "Exit Game" action Quit(confirm=True)
 
-screen disclaimer_screen():
-    modal True
-    add Solid("#000000")
-    vbox:
-        xalign 0.5
-        yalign 0.5
-        spacing 30
-        text "This game is a work of fiction." size 32 color "#ff5555" xalign 0.5 text_align 0.5
-        text "All characters, organizations, and events depicted are fictional\nand do not represent any specific country, government agency,\npolitical group, or real individuals." size 22 color "#ff5555" xalign 0.5 text_align 0.5
-        text "This game is intended to foster empathy and awareness —\nnot to make any political statement or\ntarget any real-world entity." size 22 color "#ff5555" xalign 0.5 text_align 0.5
-        null height 20
-        textbutton "— Continue —" action Return() xalign 0.5 text_color "#ff5555" text_hover_color "#ffffff" text_size 26
-    key "mouseup_1" action Return()
-    key "K_RETURN" action Return()
-
 screen game_over_screen():
     modal True
     add Solid("#000000cc")
@@ -96,9 +83,14 @@ screen game_over_screen():
 
 # ── Start ─────────────────────────────────────────
 label start:
-    show screen quit_button
-    call screen disclaimer_screen
+    scene bg_title
+    pause
 
+    scene bg_disclaimer
+    pause
+
+    scene bg_black
+    show screen quit_button
     $ player_name = renpy.input("What is your name?", length=20)
     $ player_name = player_name.strip() or "Maria"
 

@@ -7,7 +7,7 @@
 
 We believe games are the most powerful medium for storytelling — they don't just tell a story, they put you inside one.
 
-For this hackathon, we built a visual novel: a story-driven game where every choice shapes the outcome. To deliver a complete, polished experience within 12 hours, we chose Ren'Py — a Python-based visual novel engine that let us focus on what matters most: the story.
+For this hackathon, we built a visual novel named Utopia: a story-driven game where every choice shapes the outcome. To deliver a complete, polished experience within 12 hours, we chose Ren'Py — a Python-based visual novel engine that let us focus on what matters most: the story.
 
 ## Story
 
