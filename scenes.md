@@ -271,7 +271,7 @@
 
 ---
 
-[Pitch black bedroom. Pounding on the door. Player jolts awake.]
+[Pitch black bedroom. POUNDING on the door. Player jolts awake.]
 
 **Voice (outside):** "OPEN UP. FEDERAL AGENTS."
 
@@ -281,24 +281,413 @@
 
 **Voice:** "WE HAVE A WARRANT. OPEN THE DOOR NOW."
 
-**→ S_DOOR (The Raid — see script.rpy: scene_door)**
+> **Choice — branches permanently (paths do not reconverge):**
+
+**S09A** — Grab phone and call Lisa. `[+0]` → S10A
+
+**S09B** — Get documents from the bag first. `[+0]`
+> *Note: BLOCKED if player did not choose S06A — option is greyed out / unavailable.*
+
+**S09C** — Open the door — show them you have nothing to hide. `[+5]`
+> *Note: Immediately leads to arrest sequence regardless of suspicion gauge.*
 
 ---
 
 ## Act 3 — The Raid
 
-| Scene ID | Ren'Py label | Status |
-|----------|--------------|--------|
-| S_DOOR | scene_door | Implemented |
-| S_AGENT | scene_agent | Implemented |
-| S_QUESTION | scene_question | Implemented |
-| S_FINAL | scene_final | Implemented |
+---
+
+### Path A — Lisa on the Line
+
+---
+
+#### S10A — The Call
+
+**Location:** Player's bedroom.
+**Characters:** Player, Lisa (phone)
+
+---
+
+[You pick up your phone and dial the first number that comes to mind.]
+
+**Lisa:** [groggy] "...what time is it—"
+
+**Player:** "They're here. They're at my door."
+
+**Lisa:** [instantly awake] "Documents. Do you have them?"
+
+**Player:** "Yes. Yes I have them."
+
+**Lisa:** "Don't open the door without seeing the warrant. Make them slide it under. I'm staying on the line."
+
+**→ S11A**
+
+---
+
+#### S11A — Last Warning
+
+**Location:** Player's front door.
+**Characters:** Player, Voice outside
+
+---
+
+**Voice:** "LAST WARNING. WE WILL BREAK THE DOOR."
+
+**→ S12A**
+
+---
+
+#### S12A — Demand the Warrant
+
+**Location:** Player's front door.
+**Characters:** Player
+
+---
+
+**Player:** "I need to see the warrant first. Slide it under the door, please." `[-1, capped at 0]`
+> *Note: If player attended workshop (chose S07A), this option is **bolded** and shows: "You remember the workshop. You know your rights."*
+
+**→ S13A**
+
+---
+
+#### S13A — Check Suspicion Gauge
+
+> **Suspicion ≤ 5** → Ending A 🟢
+> **Suspicion > 5** → Ending B 🔴
+
+---
+
+#### Ending A — Lisa on phone · documents prepared · low suspicion 🟢
+
+**Voice (outside):** "Slide it under? Fine."
+
+[Folded paper slides under the door. You pick it up, hands shaking. Phone wedged at shoulder.]
+
+**Player:** [whispered] "Okay. It's here."
+
+**Lisa:** "Read it. Slowly. Tell me what it says."
+
+**Player:** "Hopeford District Court. Case number. There's a signature — 'Magistrate Judge.' My name. My address."
+
+**Lisa:** [exhales] "Okay. That's a real one. They have legal authority. You open the door, hands visible, no sudden moves. Give them the documents. Stay calm. The second they let you, you call me back."
+
+**Player:** "Lisa I—"
+
+**Lisa:** "I know. You've done everything right so far. Keep doing it."
+
+[You set the phone on the entry table, still on speaker. Hand on the deadbolt. Click. The door opens.]
+
+**Agent 1:** "Step back. Hands where I can see them."
+
+**Player:** "I have my documents. Reaching slowly."
+
+[You hand over the folder. An agent flips through. Another scans the apartment.]
+
+**Agent 1:** "Visa. Employment authorization. Lease." [pause] "All in order."
+
+**Agent 2:** "On paper."
+
+**Agent 1:** "Where do you work?"
+
+**Player:** "I'd like to speak with a lawyer before answering any more questions."
+
+[A long, evaluating beat.]
+
+**Agent 1:** [finally] "Smart. Documents check out. We're done here."
+
+**Agent 2:** "You sure? We could—"
+
+**Agent 1:** "I said we're done."
+
+[Door clicks shut. Player slides the deadbolt. Slides down to the floor.]
+
+**Lisa (phone):** "Are they gone?"
+
+**Player:** [whisper] "They're gone."
+
+**Lisa:** "Oh thank goodness. Thank goodness."
+
+**Player:** "I heard them. Down the hall. The neighbors. There was a kid—"
+
+**Lisa:** "I know. You're safe."
+
+**Player:** "Am I?"
+
+[You did everything right. This time.]
+
+---
+
+#### Ending B — Lisa on phone · documents prepared · high suspicion 🔴
+
+**Voice (outside):** "Slide it under? Fine."
+
+[Folded paper slides under the door. You pick it up, hands shaking. Phone wedged at shoulder.]
+
+**Player:** [whispered] "Okay. It's here."
+
+**Lisa:** "Read it. Slowly. Tell me what it says."
+
+**Player:** "Hopeford District Court. Case number. There's a signature — 'Magistrate Judge.' My name. My address."
+
+**Lisa:** [exhales] "Okay. That's a real one. They have legal authority. You open the door, hands visible, no sudden moves. Give them the documents. Stay calm. The second they let you, you call me back."
+
+**Player:** "Lisa I—"
+
+**Lisa:** "I know. You've done everything right so far. Keep doing it."
+
+[You set the phone on the entry table, still on speaker. Hand on the deadbolt. Click. The door opens.]
+
+**Agent 1:** "Step back. Hands visible."
+
+**Player:** "I have documents — they're right here, I have a Visa, I work at Hopeford, I—"
+
+**Agent 1:** "Slow down. Hands on the table. Folder over here."
+
+[You put the folder down too quickly. It slides. Papers fan out. Player reaches to gather them—]
+
+**Agent 2:** "Don't touch anything. Step back."
+
+**Player:** "Sorry — sorry, I just—"
+
+**Agent 1:** "Where do you work?"
+
+**Player:** "Hopeford Technologies. Software engineer. Five years."
+
+**Agent 1:** "Anyone else live here?"
+
+**Player:** "No, just me. A coworker comes over sometimes — Marcus — but he doesn't live here, he—"
+
+**Agent 1:** "Marcus has a last name?"
+
+**Player:** "Martinez. Or Martins, I — it's late, I'm sorry—"
+
+**Agent 2:** "You don't know your coworker's last name."
+
+**Player:** "I do, I just—"
+
+**Agent 1:** "This entry stamp. When did you last leave the country?"
+
+**Player:** "I haven't — I mean, there was a layover, last spring, to see my mom — but I came right back, it's all in the file—"
+
+**Agent 2:** "You didn't disclose that."
+
+**Player:** "I'm disclosing it now—"
+
+**Agent 1:** "You're going to come with us. Sort this out at the facility."
+
+**Player:** "What — no, my papers are right there, you looked at them—"
+
+**Agent 1:** "Turn around. Hands behind your back."
+
+**Lisa (phone):** "Wait — what's happening? Hello?? Please—"
+
+[An agent walks to the table. Picks up the phone. Looks at Lisa's contact photo. Ends the call.]
+
+**Agent 2:** "You won't be needing this."
+
+[Cuffs click. You are led out. Past the documents fanned across the table — open, useless, left behind. Past the balcony.]
+
+[In the hallway, the neighbors. A woman crying. A child asking where mama is going. You try to catch the woman's eye. She looks away.]
+
+[In the van. No windows. You try to remember Lisa's number. Try to remember the lawyer's name you were supposed to memorize. Try to remember why you ever thought paper could protect you.]
+
+[You did everything right. It wasn't enough.]
+
+---
+
+### Path B — Alone
+
+---
+
+#### S10B — Last Warning
+
+**Location:** Player's front door.
+**Characters:** Player, Voice outside
+
+---
+
+**Voice:** "LAST WARNING. WE WILL BREAK THE DOOR."
+
+**→ S11B**
+
+---
+
+#### S11B — Panic
+
+**Location:** Player's front door.
+**Characters:** Player
+
+---
+
+**Player:** "O-okay! I'm opening it! Please don't break it down!" `[+2]`
+
+**→ S12B**
+
+---
+
+#### S12B — The Door Opens
+
+**Location:** Player's bedroom → front door.
+**Characters:** Player, Agent 1, Agent 2
+
+---
+
+**Player:** [to yourself] "Okay okay okay—"
+
+[You scramble for the bag. Knock something off the dresser. Find the documents — half of them. Where's the lease? Where's the—]
+
+**Voice:** "ON THREE. ONE—"
+
+**Player:** "I'M COMING — I'M COMING, PLEASE—"
+
+[You run to the door. Don't ask for a warrant. Don't check anything. Just turn the lock and pull it open.]
+
+**Agent 1:** "Down on the ground. NOW."
+
+**Player:** "I have papers — I have papers—"
+
+**→ S13B**
+
+---
+
+#### S13B — Check Suspicion Gauge
+
+> **Suspicion ≤ 5** → Ending C 🟢
+> **Suspicion > 5** → Ending D 🔴
+
+---
+
+#### Ending C — no Lisa · documents prepared · low suspicion 🟢
+
+[An agent takes the folder. Flips through methodically. Another walks the apartment perimeter. You keep your hands at your sides. You don't speak.]
+
+**Agent 1:** "Visa. Authorization. Lease." [looks up] "Where do you work?"
+
+**Player:** "I'd like to speak with a lawyer before answering questions."
+
+[The agent holds the look. You hold it back. Don't fill the silence. Don't apologize. Don't explain.]
+
+**Agent 1:** [hands back the folder] "Have a good night."
+
+**Agent 2:** "That's it?"
+
+**Agent 1:** "That's it."
+
+[They leave. You close the door. Lock it. Stand there for a long time.]
+
+[You walk to the phone. Pick it up. Stare at Lisa's name. Don't call. Not yet.]
+
+[Instead you sit on the edge of the bed. Hands flat on your knees. Listening to the building — the shouting down the hall, the engines outside, the morning that hasn't come yet.]
+
+[You survived alone. You don't know if that's a relief or the loneliest thing you've ever felt.]
+
+[You did everything right. This time.]
+
+---
+
+#### Ending D — no Lisa · documents prepared · high suspicion 🔴
+
+**Agent 1:** "GROUND. NOW."
+
+[You're forced to your knees. Half the papers are on the floor where they fell.]
+
+**Agent 2:** [walking past Player into the apartment] "Clear the back."
+
+**Player:** "Wait — please — they're in the bedroom, my Visa is in the bedroom—"
+
+**Agent 1:** "Don't move."
+
+[The agent returns from the bedroom holding the folder. Hands it to his partner. He doesn't even open it.]
+
+**Agent 1:** "Up. Hands behind your back."
+
+**Player:** "But you didn't even — you didn't look at them—"
+
+**Agent 1:** "You can present them at the facility."
+
+**Player:** "Which facility? Where are you taking me? I have work — I have to call someone — I haven't called anyone—"
+
+**Agent 1:** "Walk."
+
+[Cuffs. Cold. Final.]
+
+[As you're led out, you pass the kitchen. Phone on the counter, dark. Lisa's name not on the screen. Nobody knows. Nobody knows yet. Past the balcony — the one you cried about to your mom. Past the fridge with the photos. Past Marcus's empty apartment two doors down. He saw this coming. He told you.]
+
+[In the van, you try to think of who will notice you're gone. Your team won't realize until Monday morning. Your landlord, maybe never. Your mother — when she calls Sunday and no one picks up.]
+
+[You mouth Lisa's number to yourself, over and over. You think you remember it. You're not sure.]
+
+[You did everything right. It wasn't enough. And no one knew to look for you.]
+
+---
+
+### Path C — Opened the Door
+
+---
+
+#### S10C — Ending E (opened door immediately) 🔴
+
+> *Note: Triggered regardless of suspicion gauge — choosing S09C bypasses all gauge checks.*
+
+[The pounding has barely registered. You, half-asleep, fumble to the door. Not thinking. Not grabbing your phone. Not asking for a warrant. Just turn the deadbolt because someone is at the door and someone at the door means open it.]
+
+[The door swings open. Three agents flood in before you can even step back.]
+
+**Agent 1:** "ON THE GROUND."
+
+**Player:** "Wait — what — I—"
+
+**Agent 1:** "GROUND."
+
+[Before you can process what is happening, you're on the ground. Knee in your back. Hands wrenched behind. The apartment fills with flashlight beams, voices, radios.]
+
+**Agent 2:** "Clear left."
+
+**Agent 3:** "Clear right."
+
+**Player:** "I have a Visa — I have papers — please, they're in the bedroom, please let me—"
+
+**Agent 1:** "Quiet."
+
+**Player:** "I'm legal — I'm legal — I work at Hopeford, I have an employer, please—"
+
+**Agent 1:** "You opened the door. We didn't force entry. You consented. Anything in this apartment is fair search now."
+
+**Player:** "I didn't — I didn't consent, I just — I just opened the door—"
+
+**Agent 1:** "Same thing."
+
+[An agent emerges from the bedroom with the document folder but doesn't hand it to anyone. Just sets it on the counter.]
+
+**Player:** "My papers — they're right there—"
+
+**Agent 1:** "Up."
+
+[You are hauled to your feet. Cuffed. Walked toward the door.]
+
+**Player:** "Please — please can I get my phone — please can I call someone — please—"
+
+**Agent 1:** "Walk."
+
+[As you cross the threshold, you turn your head — try to see the apartment one more time. The balcony. The fridge with the photos. The folder on the counter, untouched, irrelevant. The phone on the nightstand. Lisa's number locked inside it.]
+
+[In the hallway, an agent is already photographing your open door. Evidence of consent.]
+
+[In the van, no windows. You can't stop replaying it. The pounding. The door. How easy it was. How you handed it all over without a single question. How nothing — not the Visa, not the job, not the years of paperwork — mattered the second you turned that deadbolt.]
+
+[You think about Marcus. "Don't open the door. Not even a crack. Promise me." You had promised.]
+
+[The door was the only protection you had. You opened it.]
 
 ---
 
 ## Act 4 — Endings
 
-| Scene ID | Ren'Py label | Condition | Status |
-|----------|--------------|-----------|--------|
-| S_END_A | ending_arrested | suspicion >= 100 | Implemented |
-| S_END_B | ending_escaped | suspicion < 100 | Implemented |
+| Ending | Path | Condition | Result |
+|--------|------|-----------|--------|
+| A | Path A (Lisa) | suspicion ≤ 5 | Escaped 🟢 |
+| B | Path A (Lisa) | suspicion > 5 | Arrested 🔴 |
+| C | Path B (Alone) | suspicion ≤ 5 | Escaped 🟢 |
+| D | Path B (Alone) | suspicion > 5 | Arrested 🔴 |
+| E | Path C (Open door) | gauge bypassed | Arrested 🔴 |
