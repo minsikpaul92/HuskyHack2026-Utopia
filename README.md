@@ -3,6 +3,8 @@
 > Built for **HuskyHack 2026** — a 12-hour hackathon at George Brown College, supported by MLH.
 > Theme: **Storytelling**
 
+<img width="1920" height="1080" alt="title" src="https://github.com/user-attachments/assets/43b6903e-f381-4ad6-ae75-8bbd40d22050" />
+
 ## About
 
 We believe games are the most powerful medium for storytelling — they don't just tell a story, they put you inside one.
